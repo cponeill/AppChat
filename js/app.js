@@ -1,5 +1,5 @@
-var parseID	  = "Wx6KuinGl8mEZaMPRKsGRq26YakSLDtB3yw1Twr4";
-var parseKey  = "aposY0TO7lCZeasXrp71GbejR9lDJ8TJ2x8D6Ggr";
+var parseAppID	  = "Wx6KuinGl8mEZaMPRKsGRq26YakSLDtB3yw1Twr4";
+var parseRESTKey  = "aposY0TO7lCZeasXrp71GbejR9lDJ8TJ2x8D6Ggr";
 
 $(document).ready(function(){
 	getMessages();
@@ -11,8 +11,8 @@ $(document).ready(function(){
 		$.ajax({
 			url: " https://api.parse.com/1/classes/MessageBoard",
 			headers: {
-				"X-Parse-Application-Id": parseID,
-				"X-Parse-REST-API-Key": parseKey
+				"X-Parse-Application-Id": parseAppID,
+				"X-Parse-REST-API-Key": parseRESTKey
 			},
 			contentType: "application/json",
 			dataType: "json",
@@ -37,8 +37,8 @@ function getMessages() {
 	$.ajax({
 		url: " https://api.parse.com/1/classes/MessageBoard",
 		headers: {
-			"X-Parse-Application-Id": parseID,
-			"X-Parse-REST-API-Key": parseKey
+			"X-Parse-Application-Id": parseAppID,
+			"X-Parse-REST-API-Key": parseRESTKey
 		},
 		contentType: "application/json",
 		dataType: "json",
