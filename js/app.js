@@ -5,7 +5,7 @@ $(document).ready(function(){
 	getMessages();
 	$("#send").click(function(){
 		var username = $("input[name=username]").attr('value');
-		var message = $("input[name=message]").attr('value');
+		var message  = $("input[name=message]").attr('value');
 		console.log(username)
 		console.log("!")
 		$.ajax({
@@ -33,6 +33,37 @@ $(document).ready(function(){
 
 	});
 })
+function getMessages() {
+	$('#delete').click(function() {
+		var username = $("input[name=username]").attr('value');
+		var message  = $("input[name=message]").attr('value');
+		console.log(username);
+		console.og("!");
+		$.ajax({
+			url: " https://api.parse.com/1/classes/MessageBoard",
+			headers: {
+				"X-Parse-Application-Id": parseAppID,
+				"X-Parse-REST-API-Key": parseRESTKey
+			},
+			contentType: "application/json",
+			dataType: "json",
+			processData: false,
+			data: JSON.stringify({
+				"username": username,
+				"message": message
+			}),
+			type: 'DELETE',
+			success: function() {
+				console.log("delete");
+				getMessages();
+			},
+			error: function() {
+				console.log("error");
+			}
+
+		});
+	});
+}
 function getMessages() {
 	$.ajax({
 		url: " https://api.parse.com/1/classes/MessageBoard",
