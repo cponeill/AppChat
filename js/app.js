@@ -53,26 +53,6 @@ function getMessages() {
 	});
 }
 
-function getMessages() {
-	$.ajax({
-		url: " https://api.parse.com/1/classes/MessageBoard",
-		headers: {
-			"X-Parse-Application-Id": parseAppID,
-			"X-Parse-REST-API-Key": parseRESTKey
-		},
-		contentType: "application/json",
-		dataType: "json",
-		type: 'DELETE',
-		success: function(data) {
-			console.log("delete");
-			updateView(data);
-		},
-		error: function() {
-			console.log("error");
-		}
-	});
-}
-
 function updateView(messages) {	
 	var table=$(".table tbody");
 	table.html('');
